@@ -1,0 +1,12 @@
+.env
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+orbital.db
+orbital.db-shm
+orbital.db-wal
+node_modules/
+webapp/node_modules/
+webapp/dist/
+.wrangler/

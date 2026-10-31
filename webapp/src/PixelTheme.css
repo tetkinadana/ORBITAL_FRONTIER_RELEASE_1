@@ -1,0 +1,842 @@
+/* ORBITAL FRONTIER — complete pixel HUD skin */
+/* Pixelify Sans is bundled locally in main.jsx and includes Cyrillic glyphs. */
+
+:root {
+  --px-bg: #080b19;
+  --px-panel: #11182b;
+  --px-panel-2: #17223a;
+  --px-border: #3b5477;
+  --px-border-hi: #6b8bb5;
+  --px-cyan: #54f6e5;
+  --px-blue: #70a7ff;
+  --px-lime: #c6ff6d;
+  --px-pink: #ff6fb7;
+  --px-gold: #ffd36e;
+  --px-text: #eaf4ff;
+  --px-muted: #91a7c6;
+  font-family: "Pixelify Sans", monospace !important;
+  color: var(--px-text);
+  background: var(--px-bg);
+  font-size: 19px;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: none;
+}
+
+* { box-sizing: border-box; }
+html { background: var(--px-bg); }
+body {
+  min-width: 320px;
+  margin: 0;
+  color: var(--px-text);
+  font-family: "Pixelify Sans", monospace !important;
+  font-size: 19px;
+  background-color: var(--px-bg);
+  background-image:
+    linear-gradient(rgba(89, 127, 177, .055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(89, 127, 177, .055) 1px, transparent 1px),
+    radial-gradient(ellipse at 50% 0%, #18284b 0%, transparent 56%);
+  background-size: 8px 8px, 8px 8px, auto;
+}
+button, input, select, textarea { font: inherit; }
+button { cursor: pointer; }
+button:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid var(--px-cyan); outline-offset: 3px; }
+button:disabled { opacity: .4; cursor: not-allowed; }
+
+.app-shell { max-width: 600px; padding: 12px 12px 108px; }
+.topbar {
+  gap: 10px; padding: 7px 0 16px; border-bottom: 2px solid #253654;
+  margin-bottom: 12px;
+}
+.brand-mark {
+  width: 42px; height: 42px; border: 3px solid var(--px-cyan); border-radius: 0;
+  background: #10283a; color: var(--px-cyan); font-family: 'Press Start 2P', monospace;
+  font-size: 13px; box-shadow: 4px 4px 0 #263957; letter-spacing: -1px;
+}
+.brand { gap: 5px; }
+.brand b { font-family: 'Press Start 2P', monospace; font-size: 9px; line-height: 1.7; letter-spacing: 0; color: #f3f7ff; }
+.brand span, .muted { color: var(--px-muted); font-size: 17px; }
+.online { color: var(--px-muted); font-size: 14px; letter-spacing: 0; }
+.online i { width: 7px; height: 7px; border-radius: 0; background: var(--px-lime); box-shadow: 0 0 0 2px #385a49; }
+.topbar-currencies { gap: 5px; flex-wrap: wrap; }
+.topbar-currencies > *, .currency-strip > * { border-radius: 0 !important; }
+
+.hero, .home-console, .panel, .loadout-panel, .loadout-stage, .soon-card, .donation-card,
+.gacha-chest-list, .gacha-drop-item, .planet-mission-card, .collection-planet, .guild-create-panel,
+.guild-card, .profile-card, .profile-summary, .recipe-card, .run-summary, .drop-card,
+.chest-history, .dna-panel, .invite-panel, .nickname-modal, .pixel-base {
+  border: 2px solid var(--px-border) !important;
+  border-radius: 0 !important;
+  background: linear-gradient(135deg, rgba(24, 36, 62, .98), rgba(13, 19, 37, .98)) !important;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, .42), inset 0 0 0 1px rgba(128, 166, 219, .06);
+}
+.panel { margin-top: 12px; padding: 14px; }
+.hero {
+  min-height: 290px; padding: 20px 16px 16px; position: relative;
+  background-image: linear-gradient(180deg, rgba(7, 13, 29, .1), rgba(7, 13, 29, .75)),
+    radial-gradient(circle at 78% 38%, #2b4774 0%, #172b4b 21%, transparent 44%),
+    linear-gradient(135deg, #172440, #0d152a 72%) !important;
+  image-rendering: pixelated;
+}
+.hero::after, .home-console::after {
+  content: ''; position: absolute; pointer-events: none; inset: 0; opacity: .18;
+  background: repeating-linear-gradient(0deg, transparent 0 5px, rgba(109, 155, 213, .2) 5px 6px);
+}
+.eyebrow, .subheading, .status-chip, .location-tag {
+  font-family: 'Press Start 2P', monospace; font-size: 8px; line-height: 1.8;
+  letter-spacing: 0; color: var(--px-cyan); text-transform: uppercase;
+}
+.hero h1, .page-content > h1, .section-heading h2, .gacha-heading, .gacha-details-heading {
+  font-family: 'Press Start 2P', monospace; text-transform: uppercase;
+  letter-spacing: 0; line-height: 1.7; text-shadow: 2px 2px 0 #0a1020;
+}
+.hero h1, .page-content > h1 { font-size: clamp(16px, 4.4vw, 22px); margin: 16px 0 10px; }
+.hero h1 span { color: var(--px-cyan); }
+.hero > p, .gacha-description, .gacha-chest-copy p, .panel p, .home-welcome p { color: #b4c5df; font-size: 19px; line-height: 1.15; }
+.ship-art { font-size: 62px; filter: drop-shadow(4px 4px 0 #18264a); text-shadow: none; image-rendering: pixelated; }
+.location-tag { border: 2px solid #536e95; border-radius: 0; padding: 6px 8px; color: #d6e7ff; }
+
+button, .hero-button, .primary-button, .secondary-button, .danger-button, .small-button,
+.profile-button, .text-button, .fullscreen-button, .nav-item, .more-menu-item,
+.guild-avatar-option, .guild-category-option, .guild-emblem {
+  border-radius: 0 !important;
+  transition: transform .08s steps(2), filter .08s steps(2), background-color .08s steps(2);
+}
+.hero-button, .primary-button {
+  position: relative; z-index: 1; width: 100%; padding: 12px 10px;
+  border: 2px solid var(--px-cyan) !important; border-radius: 0;
+  background: #17464e !important; color: #e1fffa !important;
+  font-family: 'Press Start 2P', monospace; font-size: 9px; line-height: 1.8;
+  box-shadow: 4px 4px 0 #07131f; text-transform: uppercase;
+}
+.secondary-button, .small-button, .profile-button, .text-button {
+  border: 2px solid #607da6 !important; padding: 9px 10px;
+  background: #1a2b48 !important; color: #d7e7ff !important;
+  box-shadow: 3px 3px 0 #080d1b; font-size: 17px;
+}
+.danger-button { border: 2px solid #ff6f91 !important; background: #4a1d37 !important; color: #ffdce7 !important; box-shadow: 3px 3px 0 #120b1b; }
+button:hover:not(:disabled) { filter: brightness(1.18); }
+button:active:not(:disabled) { transform: translate(3px, 3px); box-shadow: 1px 1px 0 #050914 !important; }
+
+.section-heading { gap: 10px; }
+.section-heading h2 { margin: 7px 0 0; font-size: 10px; }
+.level-badge, .status, .status-chip, .rarity-label, .rarity-chance, .invite-code, .resource-chip {
+  border: 2px solid #48638a; border-radius: 0 !important; background: #1a2a48 !important;
+  color: var(--px-cyan); padding: 5px 7px; font-size: 16px; box-shadow: 2px 2px 0 #080d1a;
+}
+.xp-row { margin-top: 15px; color: var(--px-muted); font-size: 17px; }
+.xp-row b { color: var(--px-text); font-size: 18px; }
+.progress-track { height: 12px; border: 2px solid #344c70; border-radius: 0; background: #080f20; padding: 1px; }
+.progress-fill { border-radius: 0; background: repeating-linear-gradient(90deg, var(--px-cyan) 0 8px, #a0fff5 8px 10px); box-shadow: 0 0 8px rgba(84,246,229,.3); }
+
+.home-console { position: relative; padding: 14px; overflow: hidden; }
+.home-welcome { position: relative; z-index: 1; }
+.home-avatar, .avatar, .pilot-avatar, .pilot-avatar-wrap { border-radius: 0 !important; }
+.avatar, .pilot-avatar { border: 3px solid var(--px-cyan) !important; background: #1a2a48 !important; box-shadow: 4px 4px 0 #080d1b; image-rendering: pixelated; }
+.currency-strip { gap: 7px; }
+.currency-strip > *, .resource-chip { border-radius: 0 !important; }
+.loadout-stage { min-height: 190px; background-color: #0c1428 !important; background-image: radial-gradient(#334b72 1px, transparent 1px) !important; background-size: 8px 8px !important; }
+.pixel-pilot-art { image-rendering: pixelated; filter: drop-shadow(4px 4px 0 rgba(0,0,0,.45)); }
+.pilot-helmet, .pilot-body, .pilot-arm, .pilot-leg, .pilot-pack { border-radius: 0 !important; image-rendering: pixelated; }
+.gear-slot { border: 2px dashed #526e98 !important; border-radius: 0 !important; background: #101c33 !important; box-shadow: 3px 3px 0 #070c18; }
+.home-shortcuts { gap: 8px; }
+.home-shortcuts > *, .soon-grid > *, .resource-grid > *, .artifact-grid > *, .donation-grid > * { border-radius: 0 !important; }
+.soon-card { border: 2px solid #3c5276 !important; background: #131f38 !important; box-shadow: 3px 3px 0 #070c18; }
+
+.page-content { padding-top: 4px; }
+.page-content > h1 { margin: 14px 0 16px; }
+.page-content h2, .page-content h3 { letter-spacing: 0; }
+.item-row, .collection-row, .gacha-drop-item, .mission-facts, .guild-stats, .profile-stats,
+.pilot-level-row, .pilot-name-row, .research-status, .gacha-pity, .gacha-balance {
+  border-radius: 0 !important;
+}
+.item-row, .collection-row { border-bottom: 1px solid #304564; padding: 9px 0; }
+.item-icon, .gacha-chest-icon, .gacha-detail-icon { border-radius: 0 !important; border: 2px solid #4b6892; background: #1b2b4b !important; box-shadow: 3px 3px 0 #070d1a; image-rendering: pixelated; }
+.gacha-chest-list { padding: 10px; }
+.gacha-chest-list > *, .gacha-drop-list > *, .artifact-grid > * { border-radius: 0 !important; }
+.gacha-chest-copy h3, .donation-name { font-family: 'Press Start 2P', monospace; font-size: 8px; line-height: 1.8; }
+.gacha-chest-cost { color: var(--px-gold); font-size: 17px; }
+.gacha-pity { border: 2px solid #715a8e; background: #241c3e; padding: 8px; }
+.rarity-legend { gap: 6px; }
+.rarity-label { box-shadow: none; }
+
+.solar-map, .battle-canvas, .planet-selector-layout { border-radius: 0 !important; }
+.solar-map { border: 2px solid #3d5c84; background-color: #0b1429 !important; background-image: radial-gradient(#30496f 1px, transparent 1px) !important; background-size: 8px 8px !important; box-shadow: inset 0 0 0 4px #0a1122, 4px 4px 0 #050914; }
+.solar-sun, .solar-planet, .planet-ball { border-radius: 0 !important; image-rendering: pixelated; box-shadow: 4px 4px 0 rgba(0,0,0,.45); }
+.solar-planet { border: 2px solid #a1c5ff; }
+.mission-facts > *, .guild-stats > *, .profile-stats > *, .resource-grid > * { border: 1px solid #344c70; background: #111e36; padding: 8px; }
+
+input, select, textarea, .pixel-input {
+  border: 2px solid #4b6892 !important; border-radius: 0 !important;
+  background: #080f20 !important; color: #eff7ff !important; padding: 10px !important;
+  box-shadow: inset 2px 2px 0 #050a15; font-size: 19px !important;
+}
+input::placeholder, textarea::placeholder { color: #7188ab; }
+.guild-avatar-option, .guild-category-option { border: 2px solid #405b81 !important; background: #101b32 !important; box-shadow: 3px 3px 0 #080d1a; }
+.guild-avatar-option.selected, .guild-category-option.selected, .guild-avatar-option.active, .guild-category-option.active { border-color: var(--px-cyan) !important; background: #163b49 !important; }
+.notice, .prototype-note { border: 2px solid #806a36 !important; border-radius: 0 !important; background: #2a2518 !important; color: #ffe3a0; padding: 10px; }
+
+.bottom-nav {
+  position: fixed; z-index: 30; bottom: 0; left: 50%; transform: translateX(-50%);
+  width: min(600px, 100%); display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px;
+  padding: 8px 10px calc(8px + env(safe-area-inset-bottom));
+  border: 2px solid #425e87; border-bottom: 0; border-radius: 0 !important;
+  background: rgba(7, 12, 27, .97); box-shadow: 0 -4px 0 rgba(0,0,0,.35);
+  backdrop-filter: none;
+}
+.nav-item { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; min-height: 54px; padding: 6px 2px; border: 2px solid transparent !important; background: transparent !important; color: #8298bc !important; box-shadow: none !important; font-size: 16px; }
+.nav-item::first-letter { font-size: 22px; }
+.nav-item.active { border-color: var(--px-cyan) !important; background: #132b43 !important; color: var(--px-cyan) !important; box-shadow: 3px 3px 0 #030712 !important; }
+.more-menu { border: 2px solid #425e87 !important; border-radius: 0 !important; background: #0c1429 !important; box-shadow: 4px 4px 0 #030712; }
+.more-menu-item { border: 1px solid #273e60 !important; background: #121f38 !important; color: var(--px-text) !important; padding: 12px !important; }
+.more-menu-item:hover { background: #1a3652 !important; }
+
+.battle-page { border: 2px solid #405b81; border-radius: 0 !important; overflow: hidden; background: #080f20 !important; }
+.battle-title { font-family: 'Press Start 2P', monospace; font-size: 9px; line-height: 1.8; }
+.battle-overlay { border-radius: 0 !important; background: rgba(5, 9, 22, .88) !important; }
+.battle-actions { gap: 8px; }
+.floating-joystick { border-radius: 0 !important; border: 2px solid var(--px-cyan) !important; background: rgba(15, 43, 61, .8) !important; box-shadow: 4px 4px 0 #050914; }
+
+/* Compact pixel typography and sharper layout on small screens */
+@media (max-width: 420px) {
+  .app-shell { padding: 9px 9px 104px; }
+  .topbar { gap: 8px; }
+  .brand b { font-size: 7px; }
+  .hero { min-height: 270px; padding: 16px 12px 13px; }
+  .hero h1, .page-content > h1 { font-size: 15px; }
+  .panel { padding: 11px; }
+  .section-heading h2 { font-size: 9px; }
+  .bottom-nav { padding-left: 6px; padding-right: 6px; }
+  .nav-item { font-size: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+
+/* Gacha: compact chest-first flow. Loot is hidden behind the small square button. */
+.gacha-clean-page { padding-top: 12px; }
+.gacha-clean-page .gacha-heading { margin-bottom: 12px; }
+.gacha-clean-page .gacha-heading > h1 { font-size: clamp(15px, 4vw, 20px); margin: 7px 0; }
+.gacha-clean-page .gacha-balance { margin: 5px 0 8px; padding: 5px 9px; font-size: 17px; }
+.gacha-clean-page .gacha-chest-list { gap: 7px; }
+.gacha-chest-row { display: grid; grid-template-columns: minmax(0, 1fr) 43px; gap: 7px; align-items: stretch; }
+.gacha-clean-page .gacha-chest { min-width: 0; min-height: 62px; padding: 7px; gap: 9px; border-width: 2px; box-shadow: 3px 3px 0 #070b12; }
+.gacha-chest-row.selected { outline: 1px solid var(--px-gold); outline-offset: 2px; }
+.gacha-clean-page .gacha-chest.selected { background: #1d3546; border-color: var(--px-cyan); }
+.gacha-clean-page .gacha-chest-icon { flex-basis: 38px; width: 38px; height: 38px; font-size: 24px; }
+.gacha-clean-page .gacha-chest-copy { gap: 2px; }
+.gacha-clean-page .gacha-chest-copy b { font-size: 17px; line-height: 1.1; }
+.gacha-clean-page .gacha-chest-copy small { font-size: 14px; line-height: 1.1; }
+.gacha-select-mark { color: var(--px-cyan); font-size: 19px; padding: 0 3px; }
+.gacha-loot-button { display: grid; place-content: center; justify-items: center; gap: 1px; min-width: 43px; padding: 4px 2px; border: 2px solid var(--px-border-hi); background: #101c31; color: var(--px-cyan); box-shadow: 3px 3px 0 #070b12; }
+.gacha-loot-button span { font-size: 22px; line-height: 1; }
+.gacha-loot-button small { font-family: 'Press Start 2P', monospace; font-size: 6px; }
+.gacha-selected-panel { margin-top: 14px; padding: 12px; border: 2px solid var(--px-cyan); background: linear-gradient(135deg, #142b3b, #0d1729); box-shadow: 4px 4px 0 #060a14; }
+.gacha-selected-title { display: flex; align-items: center; gap: 10px; }
+.gacha-selected-icon { display: grid; place-items: center; width: 46px; height: 46px; flex: 0 0 46px; border: 2px solid var(--px-gold); background: #2b2a38; font-size: 27px; }
+.gacha-selected-title small, .gacha-modal-heading small { font-family: 'Press Start 2P', monospace; color: var(--px-cyan); font-size: 6px; line-height: 1.8; }
+.gacha-selected-title h2, .gacha-modal-heading h2 { margin: 3px 0 0; font-family: 'Press Start 2P', monospace; font-size: 10px; line-height: 1.8; }
+.gacha-selected-panel > p { margin: 9px 0; color: var(--px-muted); font-size: 16px; line-height: 1.2; }
+.gacha-open-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.gacha-clean-page .gacha-open-button { margin: 0; min-width: 0; padding: 10px 4px; font-size: 7px; }
+.gacha-open-button b { display: block; margin-top: 3px; font-size: 10px; }
+.gacha-clean-page .gacha-free-button { width: 100%; margin-top: 8px; padding: 8px 5px; border: 2px solid #536f98; background: #15233b; color: #d9e8ff; font-size: 15px; }
+.gacha-clean-page .gacha-pity { margin: 8px 0 0; font-size: 13px; }
+.gacha-history { padding: 10px 12px; }
+.gacha-history summary { display: flex; align-items: center; justify-content: space-between; cursor: pointer; color: var(--px-cyan); font-family: 'Press Start 2P', monospace; font-size: 7px; line-height: 1.8; }
+.gacha-history summary b { display: grid; place-items: center; min-width: 23px; height: 23px; border: 1px solid var(--px-border-hi); font-family: 'VT323', monospace; font-size: 16px; }
+.gacha-modal-backdrop { position: fixed; z-index: 100; inset: 0; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(2, 5, 13, .86); }
+.gacha-loot-modal { display: flex; flex-direction: column; width: min(100%, 430px); max-height: min(82dvh, 720px); padding: 14px; border: 3px solid var(--px-cyan); background: #0c1426; box-shadow: 6px 6px 0 #02050c; }
+.gacha-modal-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 10px; border-bottom: 2px solid #2d4568; }
+.gacha-modal-close { width: 36px; height: 36px; border: 2px solid #617ca4; background: #192742; color: #fff; font-size: 25px; line-height: 1; }
+.gacha-modal-chances { display: flex; flex-wrap: wrap; gap: 5px; padding: 10px 0; }
+.gacha-modal-chances span { display: grid; gap: 3px; padding: 5px 7px; border: 1px solid var(--rarity-color); color: var(--rarity-color); }
+.gacha-modal-chances b { font-size: 13px; }
+.gacha-modal-chances small { color: #eaf4ff; font-size: 14px; }
+.gacha-loot-list { overflow-y: auto; min-height: 0; margin: 0 0 12px; border-top: 1px solid #2d405e; }
+.gacha-loot-row { display: flex; align-items: center; gap: 8px; min-height: 43px; padding: 5px 2px; border-bottom: 1px solid #263750; }
+.gacha-loot-pixel { display: grid; place-items: center; width: 30px; height: 30px; flex: 0 0 30px; border: 2px solid var(--rarity-color); background: #17243b; color: var(--rarity-color); }
+.gacha-loot-name { display: grid; flex: 1; min-width: 0; gap: 2px; }
+.gacha-loot-name small { color: var(--px-muted); font-size: 12px; }
+.gacha-loot-name b { color: var(--px-text); font-size: 16px; overflow-wrap: anywhere; }
+.gacha-loot-row .rarity-label { font-size: 12px; }
+.gacha-loot-modal > .primary-button { flex: 0 0 auto; }
+@media (max-width: 360px) { .gacha-open-grid { grid-template-columns: 1fr; } .gacha-clean-page .gacha-open-button { padding: 8px 4px; } }
+
+/* Enforce pixel typography across the entire game UI */
+*, *::before, *::after { font-family: "Pixelify Sans", monospace !important; }
+button, input, select, textarea, option { font-family: "Pixelify Sans", monospace !important; }
+
+/* Ship tier 1, cargo and orbital station */
+.ship-hero-panel { padding: 14px; border: 2px solid #49658d !important; background: linear-gradient(180deg,#111d35,#0b1222) !important; }
+.ship-art-wrap { min-height: 190px; display: grid; place-items: center; overflow: hidden; background-color:#0a1224; background-image:radial-gradient(#31496e 1px,transparent 1px); background-size:8px 8px; border:2px solid #263c5c; margin-bottom:12px; }
+.ship-art { width:190px; height:126px; position:relative; image-rendering:pixelated; filter:drop-shadow(5px 6px 0 #050914); }
+.ship-art i { position:absolute; display:block; image-rendering:pixelated; }
+.ship-wing { top:39px; width:72px; height:47px; background:#506f98; border:5px solid #8ca6c6; clip-path:polygon(0 0,100% 25%,72% 100%,22% 75%); }
+.ship-wing-left { left:2px; transform:scaleX(-1); }
+.ship-wing-right { right:2px; }
+.ship-cockpit { z-index:2; left:62px; top:18px; width:66px; height:83px; background:#aabbd0; border:5px solid #d9e6f3; clip-path:polygon(50% 0,88% 30%,100% 80%,50% 100%,0 80%,12% 30%); }
+.ship-core { z-index:3; left:80px; top:35px; width:30px; height:37px; background:#63f1e5; border:5px solid #2a8397; clip-path:polygon(50% 0,100% 25%,85% 80%,50% 100%,15% 80%,0 25%); }
+.ship-engine { z-index:1; top:84px; width:23px; height:31px; background:#ffb55f; border:4px solid #b95b5b; }
+.ship-engine-left { left:51px; }
+.ship-engine-right { right:51px; }
+.ship-stats { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:7px; }
+.ship-stats span { padding:9px; border:2px solid #304967; background:#0c172a; color:var(--px-muted); font-size:11px; }
+.ship-stats b { display:block; margin-top:5px; color:var(--px-text); font-size:12px; }
+.ship-upgrade-card, .station-item { padding:10px; margin:9px 0; border:2px solid #304967 !important; background:#101a2e !important; }
+.ship-upgrade-card .secondary-button { width:100%; margin-top:8px; }
+.storage-panel { margin-top:16px; padding:12px; }
+.storage-capacity { margin:8px 0; color:var(--px-gold); font-size:12px; }
+.planet-building { margin-top:14px; padding:12px; border:2px dashed #8b754a; background:#201c22; }
+.planet-building h3 { margin:8px 0; }
+.planet-building p, .station-sell-panel p { color:var(--px-muted); font-size:12px; line-height:1.7; }
+.station-overview { display:flex; align-items:center; gap:14px; padding:14px; }
+.station-overview h2 { margin:0 0 7px; }
+.station-overview > div:last-child { flex:1; min-width:0; }
+.station-icon-art { width:64px; height:64px; flex:0 0 64px; display:grid; place-items:center; font-size:36px; color:var(--px-cyan); border:3px solid #47688e; background:#101f3a; box-shadow:4px 4px 0 #050914; }
+.station-item-actions { display:flex; gap:8px; }
+.station-item-actions button { flex:1; }
+.sell-button { border-color:#9c6b50 !important; color:#ffd2a4 !important; }
+.station-sell-panel { margin-top:16px; padding:14px; border-color:#80654c !important; }
+.loadout-stage { grid-template-columns: 1fr 1fr 1fr !important; }
+.slot-drill { display:none !important; }
+@media (max-width:420px) { .ship-stats { grid-template-columns:1fr 1fr; } .station-item-actions { flex-direction:column; } }
+
+
+/* MOBILE PIXEL UI PASS — readable type and generous touch targets */
+:root { --px-touch: 48px; }
+button, .nav-item, .more-menu-item, .small-button, .secondary-button, .primary-button {
+  min-height: var(--px-touch);
+  touch-action: manipulation;
+}
+button { line-height: 1.35; }
+.page-content { padding-bottom: 28px; }
+.page-content h1 { font-size: clamp(23px, 6vw, 31px); line-height: 1.35; }
+.page-content h2, .subheading { font-size: clamp(17px, 4.5vw, 21px); line-height: 1.4; }
+.page-content p, .page-content small, .muted { line-height: 1.55; }
+.primary-button, .secondary-button, .hero-button {
+  padding: 13px 14px !important;
+  font-size: clamp(13px, 3.5vw, 16px) !important;
+  letter-spacing: .02em;
+}
+.small-button { min-width: 104px; padding: 9px 12px !important; font-size: 13px !important; }
+.bottom-nav { min-height: 68px; padding-bottom: max(8px, env(safe-area-inset-bottom)); }
+.nav-item { min-height: 58px; gap: 5px; }
+.nav-item span { font-size: 21px; }
+.nav-item small { font-size: 11px !important; }
+.home-shortcuts { gap: 10px !important; }
+.home-shortcuts button { min-height: 92px; padding: 12px 8px !important; }
+.home-shortcuts button span { font-size: 24px; }
+.panel { border-radius: 0 !important; }
+.recipe-action, .large-touch-button { width: 100%; min-height: 52px; }
+.resource-grid { gap: 8px !important; }
+.resource-chip { min-height: 54px; padding: 10px !important; }
+.ship-art-wrap { display: grid; place-items: center; min-height: 205px; }
+.ship-art { left: auto !important; margin-inline: auto; }
+.ship-upgrade-card { padding: 13px !important; }
+.ship-upgrade-card .secondary-button { width: 100%; margin-top: 10px; }
+.lab-intro { font-size: 15px; }
+.lab-balance { display:flex; justify-content:space-between; align-items:center; padding:14px; margin:12px 0; }
+.lab-balance span { color:var(--px-muted); font-size:12px; }
+.lab-balance b { color:var(--px-cyan); font-size:18px; }
+.lab-upgrade-card { padding:14px !important; margin:10px 0; }
+.lab-stat-top { display:grid; grid-template-columns:42px minmax(0,1fr) auto; align-items:center; gap:10px; margin-bottom:12px; }
+.lab-stat-icon { display:grid; place-items:center; width:42px; height:42px; border:2px solid var(--px-cyan); color:var(--px-lime); font-size:21px; }
+.lab-stat-top div { display:grid; gap:4px; min-width:0; }
+.lab-stat-top b { font-size:16px; }
+.lab-stat-top small { color:var(--px-muted); font-size:12px; line-height:1.4; }
+.lab-stat-top strong { color:var(--px-cyan); font-size:12px; white-space:nowrap; }
+.lab-upgrade-card .progress-track { margin:8px 0 12px; }
+.inventory-note { padding:15px !important; margin-top:16px; }
+@media (max-width: 380px) {
+  .app-shell { padding-left:10px !important; padding-right:10px !important; }
+  .topbar { gap:8px; }
+  .brand span { font-size:12px !important; }
+  .home-shortcuts { grid-template-columns:repeat(2,minmax(0,1fr)) !important; }
+  .lab-stat-top { grid-template-columns:36px minmax(0,1fr); }
+  .lab-stat-top strong { grid-column:2; }
+}
+
+
+/* Consistent disabled state: every unavailable action is visibly inactive */
+button:disabled, button[aria-disabled="true"] {
+  filter: grayscale(1) saturate(0) !important;
+  opacity: .34 !important;
+  cursor: not-allowed !important;
+  box-shadow: none !important;
+  transform: none !important;
+  pointer-events: auto;
+}
+button:disabled:hover {
+  border-color: inherit !important;
+  background-image: none !important;
+}
+
+/* Vertical planet route for the expedition screen */
+.expedition-page .expedition-map {
+  display: flex !important;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+  min-height: 0 !important;
+  padding: 12px;
+  background-color: #0b1429 !important;
+}
+.expedition-page .expedition-map::before { display: none !important; }
+.expedition-page .expedition-map .solar-sun {
+  position: static;
+  align-self: center;
+  transform: none;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  margin: 0 auto 4px;
+  border: 2px solid #b68b48;
+  background: #342b19;
+  font-size: 24px;
+}
+.expedition-page .expedition-map .solar-planet {
+  position: relative;
+  inset: auto !important;
+  transform: none !important;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 11px;
+  width: 100%;
+  min-height: 46px;
+  padding: 6px 10px;
+  border: 1px solid #344c70;
+  background: #111e36;
+  text-align: left;
+  font-size: 11px;
+  box-shadow: 2px 2px 0 #050914;
+}
+.expedition-page .expedition-map .solar-planet.selected {
+  border-color: var(--px-cyan, #83e9d6);
+  background: #17394a;
+  box-shadow: inset 3px 0 0 var(--px-cyan, #83e9d6), 2px 2px 0 #050914;
+}
+.expedition-page .expedition-map .solar-planet .planet-ball {
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+}
+.expedition-page .expedition-map .solar-planet small { margin-left: auto; }
+.expedition-page .expedition-map .solar-planet.locked { opacity: .62; }
+
+/* FINAL UI CONSISTENCY PASS — keep the Pixelify pixel typeface and normalize scale */
+:root, html, body, #root {
+  font-family: "Pixelify Sans", monospace !important;
+  font-size: 12px !important;
+}
+body, button, input, select, textarea, option, label, p, span, small, strong, b, em, div, section, article {
+  font-family: "Pixelify Sans", monospace !important;
+}
+body { line-height: 1.4 !important; }
+.page-content > h1, .hero h1 {
+  font-size: clamp(20px, 5.2vw, 25px) !important;
+  line-height: 1.3 !important;
+  margin: 10px 0 12px !important;
+}
+.page-content h2, .section-heading h2, .subheading, .panel h2 {
+  font-size: 16px !important;
+  line-height: 1.35 !important;
+}
+.page-content h3, .panel h3 { font-size: 13px !important; line-height: 1.35 !important; }
+p, .page-content p, .panel p, .muted, .hero > p, .home-welcome p {
+  font-size: 11px !important;
+  line-height: 1.45 !important;
+}
+small, .page-content small, .panel small { font-size: 9px !important; line-height: 1.35 !important; }
+.eyebrow, .subheading, .status-chip, .location-tag { font-size: 8px !important; line-height: 1.5 !important; }
+.primary-button, .secondary-button, .hero-button {
+  font-size: 10px !important;
+  line-height: 1.35 !important;
+  min-height: 42px;
+  padding: 9px 10px !important;
+}
+.small-button, .text-button { font-size: 9px !important; line-height: 1.3 !important; min-height: 34px; padding: 7px 9px !important; }
+
+/* Home hangar: pilot stats beneath armor, five compact shortcuts */
+.loadout-stage { min-height: 232px !important; }
+.pilot-quick-stats {
+  position: absolute; z-index: 4; left: 7px; bottom: 7px;
+  width: 108px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 3px; padding: 5px; border: 1px solid #46658d;
+  background: rgba(8, 17, 34, .94); box-shadow: 2px 2px 0 #050914;
+}
+.pilot-quick-stats > div { min-width: 0; display: grid; gap: 1px; padding: 3px; border: 1px solid #263f62; }
+.pilot-quick-stats span { color: #8ca4c7; font-size: 7px !important; white-space: nowrap; }
+.pilot-quick-stats b { color: #d7ed9f; font-size: 10px !important; white-space: nowrap; }
+.pilot-quick-stats small { color: #9db2d0; font-size: 6px !important; white-space: nowrap; }
+.home-shortcuts {
+  display: grid !important; grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  gap: 6px !important; margin-top: 10px !important;
+}
+.home-shortcuts button {
+  min-width: 0; min-height: 68px !important; padding: 7px 2px !important;
+  display: grid; place-items: center; align-content: center; gap: 4px !important;
+  border: 1px solid #46658d !important; background: #101e36 !important;
+}
+.home-shortcuts button > span { font-size: 19px !important; line-height: 1 !important; }
+.home-shortcuts button > b { display: block; font-size: 7px !important; line-height: 1.25 !important; text-align: center; overflow-wrap: anywhere; }
+.home-shortcuts button > small { display: none !important; }
+
+/* Expedition system map: compact vertical planet rows with a clear selected state */
+.expedition-page .expedition-map {
+  display: flex !important; flex-direction: column; gap: 6px;
+  min-height: 0 !important; margin: 14px 0 !important; padding: 10px !important;
+}
+.expedition-page .expedition-map .solar-sun {
+  width: 36px; height: 36px; margin: 0 auto 3px;
+  font-size: 20px !important; flex: 0 0 auto;
+}
+.expedition-page .expedition-map .solar-planet {
+  display: grid !important; grid-template-columns: 30px minmax(0, 1fr) auto;
+  align-items: center; gap: 8px; width: 100%; min-height: 40px !important;
+  padding: 5px 8px !important; font-size: 11px !important;
+}
+.expedition-page .expedition-map .solar-planet b { font-size: 11px !important; }
+.expedition-page .expedition-map .solar-planet small {
+  margin-left: auto; color: #91a7c6; font-size: 8px !important;
+}
+.expedition-page .expedition-map .solar-planet .planet-ball { width: 26px; height: 26px; flex-basis: 26px; }
+.expedition-page .expedition-map .solar-planet.selected small { color: var(--px-cyan); }
+.expedition-detail { margin-top: 12px !important; padding: 13px !important; }
+.mission-facts { gap: 6px !important; font-size: 10px !important; }
+
+/* Station is the single inventory destination; accelerator is an item tile, not a separate tab */
+.station-resource-toolbar { align-items: center !important; }
+.station-resource-toolbar .subheading { margin-bottom: 4px !important; }
+.station-resource-grid {
+  display: grid !important; grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 7px !important; margin: 10px 0 16px !important;
+}
+.station-resource-cell {
+  min-width: 0; min-height: 0 !important; aspect-ratio: 1 / 1;
+  padding: 7px !important; gap: 4px; overflow: hidden;
+}
+.station-resource-cell span:not(.station-resource-icon) { font-size: 9px !important; line-height: 1.2 !important; }
+.station-resource-cell b { font-size: 14px !important; }
+.station-accelerator-tile {
+  display: flex !important; flex-direction: column; align-items: flex-start !important;
+  justify-content: space-between !important; min-width: 0; width: 100% !important;
+  min-height: 0 !important; aspect-ratio: 1 / 1; margin: 0 !important;
+  padding: 8px !important; gap: 5px;
+  border: 1px solid rgba(124,176,194,.35) !important;
+  background: linear-gradient(145deg,#1b3046,#101d30) !important;
+  box-shadow: inset 0 0 0 1px #26384c !important;
+}
+.station-accelerator-tile .accelerator-stock-image {
+  width: auto !important; height: auto !important; border: 0 !important;
+  background: transparent !important; color: var(--px-cyan) !important;
+  font-size: 22px !important; line-height: 1.1;
+}
+.station-accelerator-tile > span:not(.station-resource-icon) { color: #c2d0df; font-size: 9px !important; line-height: 1.2 !important; }
+.station-accelerator-tile b { align-self: flex-end; color: var(--px-lime); font-size: 14px !important; }
+.station-accelerator-tile small { display: none !important; }
+.station-item { padding: 10px !important; margin: 8px 0 !important; }
+.station-item-actions { flex-direction: row !important; gap: 7px; }
+.station-item-actions .small-button { flex: 1; min-width: 0; }
+
+/* Ship upgrade cards: compact row, requirements immediately below the name */
+.compact-ship-upgrade {
+  display: grid !important; grid-template-columns: 30px minmax(0, 1fr) 94px;
+  align-items: center; gap: 8px !important;
+  min-height: 0 !important; padding: 9px !important; margin: 8px 0 !important;
+}
+.compact-ship-upgrade > .item-icon {
+  width: 30px !important; height: 30px !important; min-width: 30px;
+  display: grid; place-items: center; font-size: 15px !important;
+}
+.ship-upgrade-copy { min-width: 0; display: grid; gap: 3px; }
+.ship-upgrade-copy > b { color: #e6efcf; font-size: 12px !important; line-height: 1.25 !important; }
+.ship-upgrade-copy .upgrade-materials {
+  margin: 0 !important; color: var(--px-cyan) !important;
+  font-size: 9px !important; line-height: 1.3 !important; overflow-wrap: anywhere;
+}
+.ship-upgrade-copy .ship-upgrade-description { margin: 0 !important; font-size: 9px !important; line-height: 1.3 !important; }
+.ship-upgrade-copy > small { color: #d7ed9f; font-size: 8px !important; }
+.ship-upgrade-action { width: 100% !important; min-width: 0; min-height: 36px !important; padding: 6px 4px !important; font-size: 8px !important; }
+
+/* Keep all disabled actions unmistakably unavailable */
+button:disabled, button[aria-disabled="true"] {
+  filter: grayscale(1) saturate(0) !important;
+  opacity: .32 !important;
+  box-shadow: none !important;
+}
+@media (max-width: 370px) {
+  .home-shortcuts { gap: 4px !important; }
+  .home-shortcuts button { min-height: 62px !important; }
+  .home-shortcuts button > b { font-size: 6px !important; }
+  .pilot-quick-stats { width: 96px; }
+  .gear-slot { width: 88px !important; }
+  .compact-ship-upgrade { grid-template-columns: 26px minmax(0, 1fr) 78px; gap: 6px !important; }
+  .station-resource-grid { gap: 5px !important; }
+}
+
+h1, h2, h3, .eyebrow, .subheading, .status-chip, .location-tag {
+  font-family: "Pixelify Sans", monospace !important;
+}
+
+
+/* Station inventory refinement: compact cells, horizontal heading and consistent accelerator tile. */
+.station-resource-toolbar {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 8px 14px !important;
+  width: 100% !important;
+}
+.station-resource-heading {
+  flex: 1 1 300px !important;
+  width: auto !important;
+  min-width: min(100%, 280px) !important;
+}
+.station-resource-heading .subheading {
+  display: block !important;
+  width: max-content !important;
+  max-width: 100% !important;
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+  writing-mode: horizontal-tb !important;
+  margin: 0 0 4px !important;
+}
+.station-resource-toolbar > .primary-button {
+  flex: 0 0 auto !important;
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: 240px !important;
+  justify-self: auto !important;
+  white-space: nowrap !important;
+  padding: 8px 10px !important;
+  min-height: 34px !important;
+  font-size: 8px !important;
+}
+.station-resource-grid {
+  display: grid !important;
+  grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+  gap: 6px !important;
+  align-items: stretch !important;
+}
+.station-resource-cell {
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  aspect-ratio: 1 / 1 !important;
+  padding: 6px !important;
+  gap: 3px !important;
+  overflow: hidden !important;
+  border-width: 1px !important;
+  box-shadow: inset 0 0 0 1px rgba(90, 126, 168, .10), 2px 2px 0 rgba(0,0,0,.22) !important;
+}
+.station-resource-cell .station-resource-icon {
+  display: inline-grid !important;
+  place-items: center !important;
+  width: 24px !important;
+  height: 24px !important;
+  min-width: 24px !important;
+  border: 1px solid rgba(108, 154, 194, .28) !important;
+  background: rgba(7, 17, 32, .4) !important;
+  color: var(--px-cyan) !important;
+  font-size: 15px !important;
+  line-height: 1 !important;
+}
+.station-resource-cell span:not(.station-resource-icon) {
+  display: block !important;
+  max-width: 100% !important;
+  font-size: 8px !important;
+  line-height: 1.12 !important;
+  overflow-wrap: anywhere !important;
+}
+.station-resource-cell b {
+  align-self: flex-end !important;
+  font-size: 12px !important;
+  line-height: 1 !important;
+}
+.station-empty-cell {
+  background: rgba(12, 22, 40, .16) !important;
+  border: 1px dashed rgba(103, 133, 171, .25) !important;
+  box-shadow: none !important;
+}
+.station-accelerator-tile {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: space-between !important;
+  background: linear-gradient(145deg, #1b3046, #101d30) !important;
+  border: 1px solid rgba(124,176,194,.35) !important;
+}
+.station-accelerator-tile .accelerator-stock-image {
+  display: inline-grid !important;
+  place-items: center !important;
+  width: 24px !important;
+  height: 24px !important;
+  border: 1px solid rgba(108, 154, 194, .28) !important;
+  background: rgba(7, 17, 32, .4) !important;
+  color: var(--px-cyan) !important;
+  font-size: 15px !important;
+}
+.station-accelerator-tile > span:not(.station-resource-icon) {
+  color: #c2d0df !important;
+  font-size: 8px !important;
+  line-height: 1.12 !important;
+}
+.station-accelerator-tile > b {
+  align-self: flex-end !important;
+  color: var(--px-lime) !important;
+  font-size: 12px !important;
+}
+@media (max-width: 820px) {
+  .station-resource-grid { grid-template-columns: repeat(5, minmax(0, 1fr)) !important; }
+}
+@media (max-width: 520px) {
+  .station-resource-grid { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; gap: 5px !important; }
+  .station-resource-toolbar { align-items: flex-start !important; }
+  .station-resource-heading { flex-basis: 100% !important; min-width: 0 !important; }
+  .station-resource-toolbar > .primary-button { margin-left: auto !important; }
+}
+@media (max-width: 360px) {
+  .station-resource-grid { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+}
+
+
+/* FINAL MOBILE FIXES — solar artwork map and six-column station inventory.
+   This file is imported after App.css, so these rules intentionally win over
+   the older vertical-list styles above. */
+@media (max-width: 620px) {
+  .expedition-page .expedition-map.solar-system-art {
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    height: clamp(560px, 165vw, 680px) !important;
+    min-height: 560px !important;
+    max-height: none !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    flex: 0 0 auto !important;
+    aspect-ratio: auto !important;
+    background-color: #091321 !important;
+  }
+  .expedition-page .expedition-map.solar-system-art .solar-orbits {
+    display: block !important;
+    position: absolute !important;
+    inset: 4% 3% !important;
+    width: 94% !important;
+    height: 92% !important;
+  }
+  .expedition-page .expedition-map.solar-system-art .solar-sun-art {
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    width: clamp(62px, 18vw, 78px) !important;
+    height: auto !important;
+    aspect-ratio: 1 !important;
+    margin: 0 !important;
+    transform: translate(-50%, -50%) !important;
+  }
+  .expedition-page .expedition-map.solar-system-art .solar-world {
+    position: absolute !important;
+    display: grid !important;
+    left: var(--planet-left) !important;
+    top: var(--planet-top) !important;
+    width: 74px !important;
+    min-width: 0 !important;
+    max-width: 74px !important;
+    padding: 3px 2px 5px !important;
+    transform: translate(-50%, -50%) !important;
+    gap: 2px !important;
+    background: transparent !important;
+  }
+  .expedition-page .expedition-map.solar-system-art .solar-world .planet-art-wrap {
+    width: min(var(--planet-size), 48px) !important;
+    margin: 0 auto 2px !important;
+  }
+  .expedition-page .expedition-map.solar-system-art .solar-world b {
+    font-size: 8px !important;
+    line-height: 1.1 !important;
+    white-space: nowrap !important;
+  }
+  .expedition-page .expedition-map.solar-system-art .solar-world small {
+    font-size: 6px !important;
+    line-height: 1.1 !important;
+    white-space: nowrap !important;
+  }
+  .expedition-page .expedition-map.solar-system-art .solar-world.selected .planet-art-wrap::after {
+    inset: -4px !important;
+  }
+
+  .station-resource-grid {
+    display: grid !important;
+    grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+    gap: 4px !important;
+    width: 100% !important;
+  }
+  .station-resource-cell,
+  .station-empty-cell,
+  .station-accelerator-tile {
+    min-width: 0 !important;
+    min-height: 0 !important;
+    aspect-ratio: .78 / 1 !important;
+    padding: 4px 3px !important;
+    gap: 2px !important;
+    overflow: hidden !important;
+  }
+  .station-resource-cell .station-resource-icon,
+  .station-accelerator-tile .accelerator-stock-image {
+    font-size: 14px !important;
+    line-height: 1 !important;
+  }
+  .station-resource-cell span:not(.station-resource-icon),
+  .station-accelerator-tile > span:not(.station-resource-icon) {
+    font-size: 6px !important;
+    line-height: 1.05 !important;
+    overflow-wrap: anywhere !important;
+  }
+  .station-resource-cell b,
+  .station-accelerator-tile > b {
+    font-size: 9px !important;
+    line-height: 1 !important;
+  }
+}
+
+@media (max-width: 370px) {
+  .expedition-page .expedition-map.solar-system-art {
+    height: 560px !important;
+    min-height: 560px !important;
+  }
+  .expedition-page .expedition-map.solar-system-art .solar-world {
+    width: 68px !important;
+    max-width: 68px !important;
+  }
+  .station-resource-grid { grid-template-columns: repeat(6, minmax(0, 1fr)) !important; }
+}
+
+/* Keep the fixed mobile battle pad isolated from the Telegram swipe-to-close gesture. */
+.app-shell.battle-active,
+.app-shell.battle-active .battle-page,
+.app-shell.battle-active .joystick-pad {
+  overscroll-behavior: none !important;
+  touch-action: none !important;
+  -webkit-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none !important;
+}
+.app-shell.battle-active .joystick-pad {
+  position: fixed !important;
+  z-index: 50 !important;
+  left: max(18px, env(safe-area-inset-left)) !important;
+  bottom: max(24px, env(safe-area-inset-bottom)) !important;
+  width: clamp(96px, 27vw, 112px) !important;
+  height: clamp(96px, 27vw, 112px) !important;
+  margin: 0 !important;
+  transform: none !important;
+  touch-action: none !important;
+  pointer-events: auto !important;
+}

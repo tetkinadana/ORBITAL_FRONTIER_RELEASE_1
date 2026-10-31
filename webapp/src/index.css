@@ -1,0 +1,16 @@
+/* Global readable pixel typography — Latin + Cyrillic */
+:root {
+  font-family: "Pixelify Sans", monospace;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #edf4fa;
+  background: #080d14;
+}
+*, *::before, *::after { box-sizing: border-box; font-family: "Pixelify Sans", monospace !important; }
+html { min-width: 320px; min-height: 100%; }
+body { min-width: 320px; min-height: 100vh; margin: 0; font-family: "Pixelify Sans", monospace !important; }
+button, input, select, textarea, option { font: inherit; }
+button:focus-visible { outline: 2px solid #70f2d7; outline-offset: 3px; }
+::selection { color: #071311; background: #70f2d7; }
